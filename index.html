@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Yours ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
+    overflow-x:hidden;
+    text-align:center;
+}
+
+section{
+    padding:80px 20px;
+}
+
+h1,h2{
+    font-family:'Playfair Display',serif;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    animation:fadeIn 2s ease;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.3rem;
+    opacity:0.9;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:30px;
+    margin:20px auto;
+    max-width:900px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px rgba(255,255,255,0.6);
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+.yes{
+    background:white;
+    color:#ff416c;
+}
+
+.no{
+    background:#ff416c;
+    color:white;
+    position:relative;
+}
+
+.yes:hover{
+    background:#ff416c;
+    color:white;
+}
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    animation:fadeIn 0.4s ease;
+}
+
+.modal-box{
+    background:white;
+    color:#ff416c;
+    padding:40px;
+    border-radius:20px;
+    position:relative;
+    text-align:center;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.modal h2{
+    font-size:2.5rem;
+}
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-110vh);opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.typing{
+    border-right:2px solid white;
+    white-space:nowrap;
+    overflow:hidden;
+    display:inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Forever Yours ❤️</h1>
+    <p>You are the most beautiful chapter of my life ✨</p>
+</section>
+
+<!-- LOVE LETTER -->
+<section>
+    <h2>A Letter From My Heart 💌</h2>
+    <div class="card">
+        <p class="typing" id="loveText"></p>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+    <h2>Handsome 📸</h2>
+    <div class="gallery card">
+        <img src="media/VLI (1).jpeg">
+        <img src="media/VLI (2).jpeg">
+        <img src="media/VLI (3).jpeg">
+    </div>
+</section>
+
+<!-- GIFS -->
+<section>
+    <h2>Moments  💞</h2>
+    <div class="gallery card">
+        <video width="550" height="500" controls autoplay muted loop>
+        <source src="media/VN.mp4">
+        </video>
+    </div>
+</section>
+
+<!-- GIFT -->
+<section>
+    <h2>Your Surprise 🎁</h2>
+    <div class="card">
+        <button onclick="showProposal()">Open My Heart 💖</button>
+    </div>
+</section>
+
+<!-- PROPOSAL -->
+<div class="modal" id="proposal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Will You Be Mine Forever? 💍</h2>
+        <div>
+            <button class="yes" onclick="celebrate()">Yes ❤️</button>
+            <button class="no" onmouseover="moveButton(this)">No 😜</button>
+        </div>
+    </div>
+</div>
+
+
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+
+// Typing Effect
+const text="From the moment you walked into my life, everything changed. You are my peace, my happiness, and my forever. ❤️";
+let i=0;
+function typeWriter(){
+    if(i<text.length){
+        document.getElementById("loveText").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(typeWriter,50);
+    }
+}
+typeWriter();
+
+// Proposal
+function showProposal(){
+    document.getElementById("proposal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("proposal").style.display="none";
+}
+
+function moveButton(btn){
+    btn.style.position="absolute";
+    btn.style.top=Math.random()*70+"%";
+    btn.style.left=Math.random()*70+"%";
+}
+
+function celebrate(){
+    document.getElementById("music").play();
+    alert("Yayyy ❤️ Forever Together!");
+    closeModal();
+}
+
+// Close when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById("proposal");
+    if (event.target === modal) {
+        closeModal();
+    }
+};
+
+// Close with ESC key
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        closeModal();
+    }
+});
+
+function moveButton(btn){
+    btn.style.position="absolute";
+    btn.style.top=Math.random()*80+"%";
+    btn.style.left=Math.random()*80+"%";
+}
+
+function celebrate(){
+    document.getElementById("music").play();
+    alert("Yayyy ❤️ Forever Together!");
+}
+
+// Floating Hearts
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
