@@ -153,11 +153,14 @@ button{
     font-size:20px;
     animation:floatUp 6s linear infinite;
 }
-.gallery gifts{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
+.gift-box{
+    transition:0.4s;
 }
+
+.gift-box:hover{
+    transform:scale(1.05);
+}
+
 
 @keyframes floatUp{
     0%{transform:translateY(0);opacity:1;}
@@ -221,24 +224,29 @@ button{
         <button onclick="showProposal()">Open My Heart 💖</button>
     </div>
 </section>
-<!-- Gifts Section -->
+<!-- GIFTS SECTION -->
 <section>
-    <h2>Virtual Gifts For You 🎁</h2>
-    <div class="gallery gifts">
-        <div>
-            🎂 <p>Sweet Cake</p>
+    <h2>Special Gifts For You 🎁</h2>
+    <div class="gallery card">
+
+        <div class="gift-box">
+            <img src="media/gift1.jpeg" style="width:100%; border-radius:20px;">
+            <p style="margin-top:10px;">A Little Surprise 💝</p>
         </div>
-        <div>
-            🌹 <p>Red Roses</p>
+
+        <div class="gift-box">
+            <img src="media/gift2.jpeg" style="width:100%; border-radius:20px;">
+            <p style="margin-top:10px;">A Memory We Cherish ✨</p>
         </div>
-        <div>
-            💍 <p>Ring for me</p>
+
+        <div class="gift-box">
+            <img src="media/gift3.jpeg" style="width:100%; border-radius:20px;">
+            <p style="margin-top:10px;">Forever Together ❤️</p>
         </div>
-        <div>
-            🍫 <p>Chocolate Box</p>
-        </div>
+
     </div>
 </section>
+
 
 <!-- PROPOSAL -->
 <div class="modal" id="proposal">
@@ -332,6 +340,7 @@ setInterval(createHeart,400);
 
 </body>
 </html>
+
 
 
 
