@@ -345,11 +345,42 @@ function createHeart(){
     setTimeout(()=>heart.remove(),6000);
 }
 setInterval(createHeart,400);
+function openGift(type){
+    const title = document.getElementById("giftTitle");
+    const message = document.getElementById("giftMessage");
+
+    if(type === "rose"){
+        title.innerHTML = "🌹 A Romantic Rose";
+        message.innerHTML = "This rose is a symbol of my endless love for you ❤️";
+    }
+
+    if(type === "ring"){
+        title.innerHTML = "💍 A Promise Ring";
+        message.innerHTML = "A promise to stay with you forever 💖";
+    }
+
+    if(type === "teddy"){
+        title.innerHTML = "🧸 A Cute Teddy";
+        message.innerHTML = "Whenever you miss me, hug this teddy 🤗";
+    }
+
+    if(type === "chocolate"){
+        title.innerHTML = "🍫 Sweet Chocolate";
+        message.innerHTML = "Because life is sweeter with you in it 💕";
+    }
+
+    document.getElementById("giftModal").style.display = "flex";
+}
+
+function closeGift(){
+    document.getElementById("giftModal").style.display = "none";
+}
 
 </script>
 
 </body>
 </html>
+
 
 
 
