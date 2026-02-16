@@ -223,30 +223,28 @@ button{
     <div class="card">
         <button onclick="showProposal()">Open My Heart 💖</button>
     </div>
-</section>
-<!-- GIFTS SECTION -->
+</section><!-- VIRTUAL GIFTS -->
 <section>
-    <h2>Special Gifts For You 🎁</h2>
+    <h2>Virtual Gifts For You 💝</h2>
     <div class="gallery card">
 
-        <div class="gift-box">
-            <img src="media/gift1.jpeg" style="width:100%; border-radius:20px;">
-            <p style="margin-top:10px;">A Little Surprise 💝</p>
+        <div class="virtual-gift" onclick="openGift('rose')">
+            🌹
+            <p>Rose</p>
         </div>
 
-        <div class="gift-box">
-            <img src="media/gift2.jpeg" style="width:100%; border-radius:20px;">
-            <p style="margin-top:10px;">A Memory We Cherish ✨</p>
+        <div class="virtual-gift" onclick="openGift('teddy')">
+            🧸
+            <p>Cute Teddy</p>
         </div>
 
-        <div class="gift-box">
-            <img src="media/gift3.jpeg" style="width:100%; border-radius:20px;">
-            <p style="margin-top:10px;">Forever Together ❤️</p>
+        <div class="virtual-gift" onclick="openGift('chocolate')">
+            🍫
+            <p>Sweet Chocolate</p>
         </div>
 
     </div>
 </section>
-
 
 <!-- PROPOSAL -->
 <div class="modal" id="proposal">
@@ -340,6 +338,7 @@ setInterval(createHeart,400);
 
 </body>
 </html>
+
 
 
 
