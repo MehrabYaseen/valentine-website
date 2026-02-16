@@ -153,6 +153,11 @@ button{
     font-size:20px;
     animation:floatUp 6s linear infinite;
 }
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
 
 @keyframes floatUp{
     0%{transform:translateY(0);opacity:1;}
@@ -214,6 +219,24 @@ button{
     <h2>Your Surprise 🎁</h2>
     <div class="card">
         <button onclick="showProposal()">Open My Heart 💖</button>
+    </div>
+</section>
+<!-- Gifts Section -->
+<section>
+    <h2>Virtual Gifts For You 🎁</h2>
+    <div class="gallery card">
+        <div>
+            🎂 <p>Sweet Cake</p>
+        </div>
+        <div>
+            🌹 <p>Red Roses</p>
+        </div>
+        <div>
+            💍 <p>Ring for me</p>
+        </div>
+        <div>
+            🍫 <p>Chocolate Box</p>
+        </div>
     </div>
 </section>
 
@@ -309,6 +332,7 @@ setInterval(createHeart,400);
 
 </body>
 </html>
+
 
 
 
